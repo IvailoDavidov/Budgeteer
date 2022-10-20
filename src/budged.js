@@ -25,12 +25,10 @@ let recordsMap = getData(2);
 //     budget: '4000',
 // }]]);
 
-
 let values = Array.from(recordsMap.values()).map(createBudgetRow);
 tbodyElement.replaceChildren(...values);
 
 function onTableClick(event) {
-    // debugger;
     if (event.target.tagName == 'BUTTON') {
 
         if (event.target.innerText == 'Edit') {
@@ -81,11 +79,7 @@ function onSubmit(event) {
         let parsedDate = getParsedYearMonth(dateInput);
 
         // TODO:
-        // if((parsedDate == "undefined.NaN")){
-        //     throw new Error('Invalid Date');
-        // }
-
-        //debugger;
+        // check dates and input
 
         let id;
 
@@ -97,7 +91,6 @@ function onSubmit(event) {
                 id = currId;
                 break;
         }
-
         let record = {
             id: id,
             date: parsedDate,
@@ -120,7 +113,7 @@ function onSubmit(event) {
             currId = undefined;
         }
         event.target.reset();
-         debugger;
+    
         setData(recordsMap);
 
     } else {

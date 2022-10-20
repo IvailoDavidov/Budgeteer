@@ -23,12 +23,12 @@ cancelBtn.addEventListener('click', event => {
 //     category: '1',
 //     amount: '50'
 // }]]);
+
 let recordsMap = getData();
 
 debugger;
 let values = Array.from(recordsMap.values()).map(createExpenseRow);
 tbody.replaceChildren(...values);
-
 
 function onSubmit(event) {
     event.preventDefault();
@@ -66,22 +66,20 @@ function onSubmit(event) {
         mode = 'create';
         currId = undefined;
     }
-
     expensesForm.reset();
     dateElement.value = entriesData.date;
-
-    debugger;
 
     setData(recordsMap);
 }
 
 function createExpenseRow(record) {
-
     let recordValues = Object.values(record);
 
     if (recordValues.some(x => x.length == 0)) {
         throw new Error("You have an empty field");
     }
+    // TODO:
+    // check dates and input
 
     let id = record.id;
     let date = record.date;
@@ -108,13 +106,10 @@ function createExpenseRow(record) {
 }
 
 function onEdit(event) {
-
     if (event.target.tagName == 'BUTTON') {
-
         let trElement = event.target.parentElement.parentElement;
 
         if (event.target.innerHTML == 'Delete') {
-
             if (confirm('Are you sure you want to delete this element?')) {
                 debugger;
                 trElement.remove();
@@ -129,7 +124,6 @@ function onEdit(event) {
 }
 
 function editRow(row) {
-
     let searchedRow = recordsMap.get(row.id);
 
     let dateInput = expensesForm.querySelector('[name="date"]');
@@ -145,10 +139,3 @@ function editRow(row) {
     currId = row.id
     mode = 'edit';
 }
-
-
-
-
-//window.records = recordsMap;
-
-

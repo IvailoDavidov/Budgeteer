@@ -3,11 +3,9 @@ import { getCategory, getData } from "./utils.js";
 let storageRecords = getData();
 
 const divArea = document.querySelector('.breakdown');
-
 divArea.innerHTML = '';
 
 let objectRecords = getRecordsObject(storageRecords);
-
 generateGraph(objectRecords);
 
 function getRecordsObject(mapRecords) {
@@ -15,7 +13,6 @@ function getRecordsObject(mapRecords) {
     let recordValues = Array.from(mapRecords.values());
 
     recordValues.forEach(element => {
-
         let categoryId = element.category;
         if (!obj.hasOwnProperty(categoryId)) {
             obj[categoryId] = [];
@@ -28,7 +25,6 @@ function getRecordsObject(mapRecords) {
 function generateGraph(records) {
    let maxWidth = 500;
     for (let category in records) {
-
         let currAmount = 0;
         if (records[category].length > 1) {
             currAmount = records[category].reduce((a, b) => Number(a) + Number(b));
@@ -37,7 +33,6 @@ function generateGraph(records) {
         }
 
         let row = createRow(currAmount, category, maxWidth);
-
         divArea.appendChild(row);
     }
 }

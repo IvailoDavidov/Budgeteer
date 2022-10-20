@@ -1,5 +1,4 @@
 function getParsedDate(date) {
-
     const months = {
         0: 'Jan',
         1: 'Feb',
@@ -14,7 +13,6 @@ function getParsedDate(date) {
         10: 'Nov',
         11: 'Dec'
     }
-
     let parsedDate = new Date(date);
     let month = parsedDate.getMonth();
 
@@ -43,16 +41,13 @@ function getParsedYearMonth(date) {
         10: 'Nov',
         11: 'Dec'
     }
-
     let parsedDate = new Date(newDate);
     let month = parsedDate.getMonth();
 
     return `${months[month]}-${parsedDate.getFullYear()}`;
-
 }
 
 function getMonth(num) {
-
     const months = {
         1: 'Jan',
         2: 'Feb',
@@ -71,7 +66,6 @@ function getMonth(num) {
 }
 
 function getCategory(num) {
-
     const categories = {
         0: 'Others',
         1: 'Utilities',
@@ -79,7 +73,6 @@ function getCategory(num) {
         3: 'Entertainment',
         4: 'Transport'
     }
-
     return categories[num];
 }
 
@@ -107,7 +100,6 @@ function setData(data) {
 
         localStorage.setItem('records' + `${counter}`, JSON.stringify(records));
     }
-
 }
 function getData(num) {
     let records;
@@ -120,7 +112,6 @@ function getData(num) {
     }
     return new Map(records.map(e => [e.id, e]));
 }
-
 
 export {
     getParsedDate,
